@@ -1,0 +1,16 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.3.5
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: ''
+author_name: Matthieu Thiboust
+has_binder: false
+has_settings: false
+kind: frontend
+labextension_name: jupyterlab-retrieve-base-url
+project_short_description: A JupyterLab extension to retrieve the base URL from the
+    frontend. It was developped as a workaround for current limitation of `dash` jupyterlab
+    extension that cannot be installed with jupyterlab v4.
+python_name: jupyterlab-retrieve-base-url
+repository: https://github.com/mthiboust/jupyterlab-retrieve-base-url
+test: false
+
