@@ -29,28 +29,31 @@ dynamic = ["version", "description", "authors", "urls", "keywords"]
 [tool.hatch.version]
 source = "nodejs"
 
+[tool.hatch.metadata]
+import-name = "jupyterlab_retrieve_base_url"
+
 [tool.hatch.metadata.hooks.nodejs]
 fields = ["description", "authors", "urls", "keywords"]
 
 [tool.hatch.build.targets.sdist]
-artifacts = ["jupyterlab-retrieve-base-url/labextension"]
+artifacts = ["jupyterlab_retrieve_base_url/labextension"]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"jupyterlab-retrieve-base-url/labextension" = "share/jupyter/labextensions/jupyterlab-retrieve-base-url"
-"install.json" = "share/jupyter/labextensions/jupyterlab-retrieve-base-url/install.json"
+"jupyterlab_retrieve_base_url/labextension" = "share/jupyter/labextensions/jupyterlab_retrieve_base_url"
+"install.json" = "share/jupyter/labextensions/jupyterlab_retrieve_base_url/install.json"
 
 [tool.hatch.build.hooks.version]
-path = "jupyterlab-retrieve-base-url/_version.py"
+path = "jupyterlab_retrieve_base_url/_version.py"
 
 [tool.hatch.build.hooks.jupyter-builder]
 dependencies = ["hatch-jupyter-builder>=0.5"]
 build-function = "hatch_jupyter_builder.npm_builder"
 ensured-targets = [
-    "jupyterlab-retrieve-base-url/labextension/static/style.js",
-    "jupyterlab-retrieve-base-url/labextension/package.json",
+    "jupyterlab_retrieve_base_url/labextension/static/style.js",
+    "jupyterlab_retrieve_base_url/labextension/package.json",
 ]
-skip-if-exists = ["jupyterlab-retrieve-base-url/labextension/static/style.js"]
+skip-if-exists = ["jupyterlab_retrieve_base_url/labextension/static/style.js"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]
 build_cmd = "build:prod"
@@ -60,7 +63,7 @@ npm = ["jlpm"]
 build_cmd = "install:extension"
 npm = ["jlpm"]
 source_dir = "src"
-build_dir = "jupyterlab-retrieve-base-url/labextension"
+build_dir = "jupyterlab_retrieve_base_url/labextension"
 
 [tool.jupyter-releaser.options]
 version_cmd = "hatch version"
