@@ -40,8 +40,8 @@ artifacts = ["jupyterlab_retrieve_base_url/labextension"]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"jupyterlab_retrieve_base_url/labextension" = "share/jupyter/labextensions/jupyterlab_retrieve_base_url"
-"install.json" = "share/jupyter/labextensions/jupyterlab_retrieve_base_url/install.json"
+"jupyterlab_retrieve_base_url/labextension" = "share/jupyter/labextensions/jupyterlab-retrieve-base-url"
+"install.json" = "share/jupyter/labextensions/jupyterlab-retrieve-base-url/install.json"
 
 [tool.hatch.build.hooks.version]
 path = "jupyterlab_retrieve_base_url/_version.py"
