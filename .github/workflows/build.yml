@@ -45,13 +45,13 @@ jobs:
 
         pip install build
         python -m build
-        pip uninstall -y "jupyterlab-retrieve-base-url" jupyterlab
+        pip uninstall -y "jupyterlab_retrieve_base_url" jupyterlab
 
     - name: Upload extension packages
       uses: actions/upload-artifact@v4
       with:
         name: extension-artifacts
-        path: dist/jupyterlab-retrieve-base-url*
+        path: dist/jupyterlab_retrieve_base_url*
         if-no-files-found: error
 
   test_isolated:
@@ -74,7 +74,7 @@ jobs:
         sudo rm -rf $(which node)
         sudo rm -rf $(which node)
 
-        pip install "jupyterlab>=4.0.0,<5" jupyterlab-retrieve-base-url*.whl
+        pip install "jupyterlab>=4.0.0,<5" jupyterlab_retrieve_base_url*.whl
 
 
         jupyter labextension list

@@ -1,6 +1,6 @@
 {
     "name": "jupyterlab-retrieve-base-url",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "A JupyterLab extension to retrieve the base URL from the frontend. It was developped as a workaround for current limitation of `dash` jupyterlab extension that cannot be installed with jupyterlab v4.",
     "keywords": [
         "jupyter",

@@ -10,7 +10,7 @@ labextension_name: jupyterlab-retrieve-base-url
 project_short_description: A JupyterLab extension to retrieve the base URL from the
     frontend. It was developped as a workaround for current limitation of `dash` jupyterlab
     extension that cannot be installed with jupyterlab v4.
-python_name: jupyterlab-retrieve-base-url
+python_name: jupyterlab_retrieve_base_url
 repository: https://github.com/mthiboust/jupyterlab-retrieve-base-url
 test: false
 

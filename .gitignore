@@ -7,9 +7,9 @@ node_modules/
 *.egg-info/
 .ipynb_checkpoints
 *.tsbuildinfo
-jupyterlab-retrieve-base-url/labextension
+jupyterlab_retrieve_base_url/labextension
 # Version file is handled by hatchling
-jupyterlab-retrieve-base-url/_version.py
+jupyterlab_retrieve_base_url/_version.py
 
 # Created by https://www.gitignore.io/api/python
 # Edit at https://www.gitignore.io/?templates=python
