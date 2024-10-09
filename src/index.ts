@@ -14,7 +14,7 @@ import { IConsoleTracker } from '@jupyterlab/console';
 
 import '../style/index.css';
 
-interface DashMessageData {
+interface IDashMessageData {
   type: string;
   port: string;
   url: string;
@@ -33,7 +33,7 @@ function activate(
     sessionContext.ready.then(() => {
       const session = sessionContext.session;
       if (session?.kernel) {
-        let kernel = session.kernel;
+        const kernel = session.kernel;
         registerCommTarget(kernel, app);
       }
     });
@@ -45,7 +45,7 @@ function activate(
     sessionContext.ready.then(() => {
       const session = sessionContext.session;
       if (session?.kernel) {
-        let kernel = session.kernel;
+        const kernel = session.kernel;
         registerCommTarget(kernel, app);
       }
     });
@@ -60,7 +60,7 @@ function registerCommTarget(
     'retrieve_base_url',
     (comm: Kernel.IComm, msg: KernelMessage.ICommOpenMsg) => {
       comm.onMsg = (msg: KernelMessage.ICommMsgMsg) => {
-        let msgData = msg.content.data as unknown as DashMessageData;
+        const msgData = msg.content.data as unknown as IDashMessageData;
         if (msgData.type === 'base_url_request') {
           // Build server url and base subpath.
           const baseUrl = PageConfig.getBaseUrl();
