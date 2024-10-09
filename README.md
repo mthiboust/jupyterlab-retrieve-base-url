@@ -2,7 +2,7 @@
 
 [![Github Actions Status](https://github.com/mthiboust/jupyterlab-retrieve-base-url/workflows/Build/badge.svg)](https://github.com/mthiboust/jupyterlab-retrieve-base-url/actions/workflows/build.yml)
 
-A JupyterLab extension to retrieve the base URL from the frontend. It was developped as a workaround for current limitation of `dash` jupyterlab extension that cannot be installed with jupyterlab v4.
+A JupyterLab extension to retrieve the base URL from the frontend. It was developped as a workaround for current limitation of `dash` jupyterlab extension that cannot be installed with jupyterlab v4. Code is mostly taken from [here](https://github.com/plotly/dash/blob/dev/dash/_jupyter.py) and [here](https://github.com/plotly/dash/tree/dev/%40plotly/dash-jupyterlab) in the `dash` project.
 
 ## Install
 
