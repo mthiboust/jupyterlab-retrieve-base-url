@@ -21,6 +21,7 @@ pip uninstall jupyterlab-retrieve-base-url
 ## Usage
 
 In a jupyterlab notebook:
+
 ```python
 from jupyterlab_retrieve_base_url import retrieve_base_url
 
@@ -28,13 +29,14 @@ retrieve_base_url()
 ```
 
 Some typical results:
+
 ```python
 # Running locally
 {'type': 'base_url_response',
  'server_url': 'http://localhost:8890',
  'base_subpath': '/',
  'frontend': 'jupyterlab'}
- ```
+```
 
 ```python
 # Using jupyterhub

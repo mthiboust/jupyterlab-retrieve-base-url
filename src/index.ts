@@ -12,9 +12,7 @@ import { KernelMessage, Kernel } from '@jupyterlab/services';
 
 import { IConsoleTracker } from '@jupyterlab/console';
 
-
 import '../style/index.css';
-
 
 interface DashMessageData {
   type: string;
@@ -28,7 +26,6 @@ function activate(
   notebooks: INotebookTracker,
   consoles: IConsoleTracker
 ) {
-
   // Watch notebook creation
   notebooks.widgetAdded.connect((sender, nbPanel: NotebookPanel) => {
     // const session = nbPanel.session;
@@ -39,7 +36,7 @@ function activate(
         let kernel = session.kernel;
         registerCommTarget(kernel, app);
       }
-    })
+    });
   });
 
   // Watch console creation
@@ -51,7 +48,7 @@ function activate(
         let kernel = session.kernel;
         registerCommTarget(kernel, app);
       }
-    })
+    });
   });
 }
 
@@ -63,19 +60,18 @@ function registerCommTarget(
     'retrieve_base_url',
     (comm: Kernel.IComm, msg: KernelMessage.ICommOpenMsg) => {
       comm.onMsg = (msg: KernelMessage.ICommMsgMsg) => {
-        let msgData = (msg.content.data as unknown) as DashMessageData;
+        let msgData = msg.content.data as unknown as DashMessageData;
         if (msgData.type === 'base_url_request') {
-
           // Build server url and base subpath.
           const baseUrl = PageConfig.getBaseUrl();
           const baseSubpath = PageConfig.getOption('baseUrl');
-          const n = baseUrl.lastIndexOf(baseSubpath)
-          const serverUrl = baseUrl.slice(0, n)
+          const n = baseUrl.lastIndexOf(baseSubpath);
+          const serverUrl = baseUrl.slice(0, n);
           comm.send({
             type: 'base_url_response',
             server_url: serverUrl,
             base_subpath: baseSubpath,
-            frontend: "jupyterlab",
+            frontend: 'jupyterlab'
           });
         }
       };
