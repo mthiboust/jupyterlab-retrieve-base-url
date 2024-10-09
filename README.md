@@ -6,7 +6,7 @@ A JupyterLab extension to retrieve the base URL from the frontend. It was develo
 
 ## Install
 
-Note that this extension requires `jupyterLab>=4.0.0`.
+Note that this extension requires `jupyterlab>=4.0.0`.
 
 To install/uninstall the extension, execute:
 
