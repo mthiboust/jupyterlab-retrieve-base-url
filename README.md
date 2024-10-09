@@ -1,4 +1,4 @@
-# Retrieve Base URL Jupyterlab v4 extension
+# Retrieve Base URL extension for Jupyterlab v4 
 
 [![Github Actions Status](https://github.com/mthiboust/jupyterlab-retrieve-base-url/workflows/Build/badge.svg)](https://github.com/mthiboust/jupyterlab-retrieve-base-url/actions/workflows/build.yml)
 
