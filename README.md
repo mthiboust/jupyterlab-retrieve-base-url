@@ -1,4 +1,4 @@
-# jupyterlab_retrieve_base_url
+# Retrieve Base URL Jupyterlab v4 extension
 
 [![Github Actions Status](https://github.com/mthiboust/jupyterlab-retrieve-base-url/workflows/Build/badge.svg)](https://github.com/mthiboust/jupyterlab-retrieve-base-url/actions/workflows/build.yml)
 
@@ -12,10 +12,10 @@ To install/uninstall the extension, execute:
 
 ```bash
 # Install
-pip install jupyterlab_retrieve_base_url
+pip install jupyterlab-retrieve-base-url
 
 # Uninstall
-pip uninstall jupyterlab_retrieve_base_url
+pip uninstall jupyterlab-retrieve-base-url
 ```
 
 ## Usage
