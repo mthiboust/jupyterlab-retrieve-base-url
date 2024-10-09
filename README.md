@@ -4,74 +4,62 @@
 
 A JupyterLab extension to retrieve the base URL from the frontend. It was developped as a workaround for current limitation of `dash` jupyterlab extension that cannot be installed with jupyterlab v4.
 
-## Requirements
-
-- JupyterLab >= 4.0.0
-
 ## Install
 
-To install the extension, execute:
+Note that this extension requires `jupyterLab>=4.0.0`.
+
+To install/uninstall the extension, execute:
 
 ```bash
+# Install
 pip install jupyterlab_retrieve_base_url
-```
 
-## Uninstall
-
-To remove the extension, execute:
-
-```bash
+# Uninstall
 pip uninstall jupyterlab_retrieve_base_url
 ```
 
-## Contributing
+## Usage
 
-### Development install
+In a jupyterlab notebook:
+```python
+from jupyterlab_retrieve_base_url import retrieve_base_url
 
-Note: You will need NodeJS to build the extension package.
-
-The `jlpm` command is JupyterLab's pinned version of
-[yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use
-`yarn` or `npm` in lieu of `jlpm` below.
-
-```bash
-# Clone the repo to your local environment
-# Change directory to the jupyterlab_retrieve_base_url directory
-# Install package in development mode
-pip install -e "."
-# Link your development version of the extension with JupyterLab
-jupyter labextension develop . --overwrite
-# Rebuild extension Typescript source after making changes
-jlpm build
+retrieve_base_url()
 ```
 
-You can watch the source directory and run JupyterLab at the same time in different terminals to watch for changes in the extension's source and automatically rebuild the extension.
+Some typical results:
+```python
+# Running locally
+{'type': 'base_url_response',
+ 'server_url': 'http://localhost:8890',
+ 'base_subpath': '/',
+ 'frontend': 'jupyterlab'}
+ ```
 
-```bash
-# Watch the source directory in one terminal, automatically rebuilding when needed
-jlpm watch
-# Run JupyterLab in another terminal
-jupyter lab
+```python
+# Using jupyterhub
+{'type': 'base_url_response',
+ 'server_url': 'https://my-domain.com',
+ 'base_subpath': '/user/user@my-domain.com/',
+ 'frontend': 'jupyterlab'}
 ```
 
-With the watch command running, every saved change will immediately be built locally and available in your running JupyterLab. Refresh JupyterLab to load the change in your browser (you may need to wait several seconds for the extension to be rebuilt).
+### Configure dash proxy config
 
-By default, the `jlpm build` command generates the source maps for this extension to make it easier to debug using the browser dev tools. To also generate source maps for the JupyterLab core extensions, you can run the following command:
+The current `jupyter_dash.infer_jupyterlab_proxy_config()` method from the `dash==2.18.1` library is not working correctly with `jupyterlab>=4.0.0` (see https://github.com/plotly/dash/issues/2804 and https://github.com/plotly/dash/issues/2998). If you run into this issue, then you can try the following:
 
-```bash
-jupyter lab build --minimize=False
+```python
+from dash import Dash, jupyter_dash
+
+# Set proxy settings
+from dash._jupyter import _jupyter_config
+from jupyterlab_retrieve_base_url import retrieve_base_url
+_jupyter_config.update(retrieve_base_url())
+
+# Create a dash app
+app = dash.Dash()
+...
+
+# Run the dash app
+jupyter_dash.run_app(app, host=host, port=port, mode="jupyterlab")
 ```
-
-### Development uninstall
-
-```bash
-pip uninstall jupyterlab_retrieve_base_url
-```
-
-In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
-command. To find its location, you can run `jupyter labextension list` to figure out where the `labextensions`
-folder is located. Then you can remove the symlink named `jupyterlab-retrieve-base-url` within that folder.
-
-### Packaging the extension
-
-See [RELEASE](RELEASE.md)
